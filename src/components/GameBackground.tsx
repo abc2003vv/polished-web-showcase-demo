@@ -24,12 +24,13 @@ const GameBackground = () => {
     const particlesArray: Particle[] = [];
     const numberOfParticles = 50;
 
-    // Colors for particles
+    // Colors for particles - more tech/game focused
     const colors = [
-      "#8B5CF6", // Vivid Purple
-      "#D946EF", // Magenta Pink
-      "#F97316", // Bright Orange
-      "#0EA5E9", // Ocean Blue
+      "#00FFFF", // Cyan
+      "#FF00FF", // Magenta
+      "#00FF00", // Bright Green
+      "#0099FF", // Bright Blue
+      "#FF3300", // Bright Orange
     ];
 
     // Particle class
@@ -40,19 +41,27 @@ const GameBackground = () => {
       speedX: number;
       speedY: number;
       color: string;
+      pulse: number;
+      pulseSpeed: number;
 
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 5 + 1;
+        this.size = Math.random() * 4 + 1;
         this.speedX = Math.random() * 1 - 0.5;
         this.speedY = Math.random() * 1 - 0.5;
         this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.pulse = 0;
+        this.pulseSpeed = 0.02 + Math.random() * 0.02;
       }
 
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
+        this.pulse += this.pulseSpeed;
+
+        // Pulse size for more dynamic effect
+        this.size = 1 + Math.sin(this.pulse) * 1.5;
 
         // Wrap around screen
         if (this.x > canvas.width) this.x = 0;
@@ -65,9 +74,12 @@ const GameBackground = () => {
       draw() {
         if (!ctx) return;
         ctx.fillStyle = this.color;
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
+        ctx.shadowBlur = 0;
       }
     }
 
@@ -88,9 +100,40 @@ const GameBackground = () => {
       });
     });
 
+    // Draw grid for tech/game feel
+    const drawGrid = () => {
+      if (!ctx) return;
+      
+      ctx.strokeStyle = "rgba(0, 255, 255, 0.1)";
+      ctx.lineWidth = 1;
+      
+      const gridSize = 50;
+      
+      // Vertical lines
+      for (let x = 0; x < canvas.width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      
+      // Horizontal lines
+      for (let y = 0; y < canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+    };
+
     // Animation loop
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Fill with black, slightly transparent to create trails
+      ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw grid
+      drawGrid();
       
       // Draw connections between particles
       connectParticles();
@@ -108,7 +151,7 @@ const GameBackground = () => {
     const connectParticles = () => {
       if (!ctx) return;
       
-      const maxDistance = 100;
+      const maxDistance = 150;
       for (let a = 0; a < particlesArray.length; a++) {
         for (let b = a; b < particlesArray.length; b++) {
           const dx = particlesArray[a].x - particlesArray[b].x;
@@ -117,7 +160,17 @@ const GameBackground = () => {
           
           if (distance < maxDistance) {
             const opacity = 1 - distance/maxDistance;
-            ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`; // Vivid purple with opacity
+            // Create cyberpunk-like connection colors
+            const gradient = ctx.createLinearGradient(
+              particlesArray[a].x,
+              particlesArray[a].y,
+              particlesArray[b].x,
+              particlesArray[b].y
+            );
+            gradient.addColorStop(0, `${particlesArray[a].color}${Math.floor(opacity * 255).toString(16).padStart(2, '0')}`);
+            gradient.addColorStop(1, `${particlesArray[b].color}${Math.floor(opacity * 255).toString(16).padStart(2, '0')}`);
+            
+            ctx.strokeStyle = gradient;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -128,6 +181,9 @@ const GameBackground = () => {
       }
     };
 
+    // Start with solid black background
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     animate();
 
     return () => {

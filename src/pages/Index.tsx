@@ -35,11 +35,12 @@ const Index = () => {
       observer.observe(element);
     });
 
-    // Welcome toast notification
+    // Tech-themed welcome toast notification
     setTimeout(() => {
       toast({
-        title: "Welcome to my portfolio!",
-        description: "Feel free to explore my projects and get in touch.",
+        title: "SYSTEM ONLINE",
+        description: "Portfolio interface initialized. Ready for exploration.",
+        className: "bg-black border border-primary text-primary",
       });
     }, 1500);
 
@@ -51,7 +52,7 @@ const Index = () => {
   }, [toast]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-black">
       <GameBackground />
       <Navbar />
       <main>
