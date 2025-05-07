@@ -31,8 +31,8 @@ const Navbar = () => {
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-sm py-3 shadow-md"
-          : "bg-transparent py-5"
+          ? "bg-gray-800/90 backdrop-blur-sm py-3 shadow-md"
+          : "bg-gray-900 py-5"
       }`}
     >
       <div className="container flex items-center justify-between">
@@ -73,7 +73,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 top-[60px] bg-background z-40 animate-fade-in">
+          <div className="md:hidden fixed inset-0 top-[60px] bg-gray-900 z-40 animate-fade-in">
             <nav className="flex flex-col items-center justify-center h-full gap-6">
               {navItems.map((item) => (
                 <a
