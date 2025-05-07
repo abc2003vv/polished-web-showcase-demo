@@ -9,7 +9,7 @@ const Hero = () => {
       className="min-h-screen flex items-center pt-16 pb-12 overflow-hidden"
     >
       <div className="container grid md:grid-cols-2 gap-8 items-center">
-        <div className="space-y-6 md:pr-6 animate-fade-in">
+        <div className="space-y-6 md:pr-6 animate-fade-in backdrop-blur-sm bg-background/30 p-6 rounded-lg shadow-lg">
           <p className="text-primary font-medium">Hello, my name is</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             John Doe
@@ -34,7 +34,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="rounded-md"
+              className="rounded-md bg-background/50 backdrop-blur-sm hover:bg-background/70"
               asChild
             >
               <a href="#contact">Get in Touch</a>
@@ -44,7 +44,7 @@ const Hero = () => {
         <div className="hidden md:flex justify-center items-center animate-scale-in">
           <div className="relative">
             <div className="absolute inset-0 rounded-full bg-primary/20 blur-3xl"></div>
-            <div className="w-72 h-72 bg-secondary rounded-full border-8 border-background flex items-center justify-center overflow-hidden relative z-10">
+            <div className="w-72 h-72 bg-secondary/80 backdrop-blur-md rounded-full border-8 border-background/30 flex items-center justify-center overflow-hidden relative z-10">
               <div className="absolute inset-0 bg-gradient-to-b from-primary/30 via-transparent to-transparent mix-blend-overlay"></div>
               <span className="text-6xl font-bold text-primary">JD</span>
             </div>

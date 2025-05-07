@@ -124,4 +124,62 @@
   .reveal-delay-400 {
     @apply delay-400;
   }
+  
+  /* Game background related styles */
+  .game-element {
+    @apply transition-all duration-300;
+  }
+  
+  .game-element:hover {
+    @apply scale-110 rotate-3;
+  }
+  
+  .pixel-border {
+    box-shadow: 0 0 0 2px #000, 
+                0 0 0 4px #fff, 
+                0 0 0 6px #000;
+  }
+  
+  .glow-effect {
+    @apply relative;
+  }
+  
+  .glow-effect::after {
+    content: '';
+    @apply absolute inset-0 rounded-lg opacity-0 transition-opacity duration-300;
+    box-shadow: 0 0 15px 5px theme('colors.primary.DEFAULT');
+  }
+  
+  .glow-effect:hover::after {
+    @apply opacity-100;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.7));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.9));
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }

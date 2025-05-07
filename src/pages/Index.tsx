@@ -6,6 +6,7 @@ import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import GameBackground from "@/components/GameBackground";
 import { useToast } from "@/components/ui/use-toast";
 
 const Index = () => {
@@ -51,6 +52,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <GameBackground />
       <Navbar />
       <main>
         <Hero />
