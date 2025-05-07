@@ -1,12 +1,70 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect } from "react";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import { useToast } from "@/components/ui/use-toast";
 
 const Index = () => {
+  const { toast } = useToast();
+
+  // Animation for elements on scroll
+  useEffect(() => {
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    };
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const revealElements = document.querySelectorAll(".reveal");
+    
+    revealElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+    // Welcome toast notification
+    setTimeout(() => {
+      toast({
+        title: "Welcome to my portfolio!",
+        description: "Feel free to explore my projects and get in touch.",
+      });
+    }, 1500);
+
+    return () => {
+      revealElements.forEach((element) => {
+        observer.unobserve(element);
+      });
+    };
+  }, [toast]);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main>
+        <Hero />
+        <div className="reveal">
+          <About />
+        </div>
+        <div className="reveal">
+          <Projects />
+        </div>
+        <div className="reveal">
+          <Contact />
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 };
