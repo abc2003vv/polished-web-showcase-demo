@@ -31,13 +31,13 @@ const Navbar = () => {
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-gray-800/90 backdrop-blur-sm py-3 shadow-md"
-          : "bg-gray-900 py-5"
+          ? "bg-gray-200/90 backdrop-blur-sm py-3 shadow-md"
+          : "bg-gray-300 py-5"
       }`}
     >
       <div className="container flex items-center justify-between">
         <a href="#" className="text-xl font-bold text-primary">
-          Portfolio<span className="text-foreground">.</span>
+          Portfolio<span className="text-gray-800">.</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -46,12 +46,12 @@ const Navbar = () => {
             <a
               key={item.title}
               href={item.href}
-              className="text-foreground hover:text-primary transition-colors font-medium"
+              className="text-gray-800 hover:text-primary transition-colors font-medium"
             >
               {item.title}
             </a>
           ))}
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-md">
+          <Button className="bg-primary text-gray-800 hover:bg-primary/90 rounded-md font-semibold">
             Resume
           </Button>
         </nav>
@@ -60,7 +60,7 @@ const Navbar = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden"
+          className="md:hidden text-gray-800"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Menu"
         >
@@ -73,19 +73,19 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 top-[60px] bg-gray-900 z-40 animate-fade-in">
+          <div className="md:hidden fixed inset-0 top-[60px] bg-gray-200 z-40 animate-fade-in">
             <nav className="flex flex-col items-center justify-center h-full gap-6">
               {navItems.map((item) => (
                 <a
                   key={item.title}
                   href={item.href}
-                  className="text-foreground hover:text-primary transition-colors text-lg font-medium"
+                  className="text-gray-800 hover:text-primary transition-colors text-lg font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.title}
                 </a>
               ))}
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-md">
+              <Button className="bg-primary text-gray-800 hover:bg-primary/90 rounded-md font-semibold">
                 Resume
               </Button>
             </nav>

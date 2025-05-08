@@ -40,7 +40,7 @@ const Index = () => {
       toast({
         title: "SYSTEM ONLINE",
         description: "Portfolio interface initialized. Ready for exploration.",
-        className: "bg-black border border-primary text-primary",
+        className: "bg-white border border-primary text-gray-800",
       });
     }, 1500);
 
@@ -52,7 +52,7 @@ const Index = () => {
   }, [toast]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-black">
+    <div className="min-h-screen flex flex-col bg-background">
       <GameBackground />
       <Navbar />
       <main>

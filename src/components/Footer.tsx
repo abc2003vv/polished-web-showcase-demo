@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-muted-foreground">
+            <p className="text-gray-700">
               © {currentYear} John Doe. All rights reserved.
             </p>
           </div>
@@ -17,21 +17,21 @@ const Footer = () => {
           <div className="flex items-center gap-4">
             <a
               href="#"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-gray-600 hover:text-primary transition-colors"
               aria-label="GitHub"
             >
               <Github className="h-5 w-5" />
             </a>
             <a
               href="#"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-gray-600 hover:text-primary transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-5 w-5" />
             </a>
             <a
               href="mailto:hello@example.com"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-gray-600 hover:text-primary transition-colors"
               aria-label="Email"
             >
               <Mail className="h-5 w-5" />

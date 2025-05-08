@@ -8,43 +8,43 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 95%;
+    --foreground: 240 10% 3.9%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
 
     --primary: 180 100% 50%;
-    --primary-foreground: 0 0% 0%;
+    --primary-foreground: 0 0% 10%;
 
     --secondary: 300 100% 50%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary-foreground: 0 0% 10%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 215.4 16.3% 75%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 240 5% 34%;
 
     --accent: 120 100% 50%;
-    --accent-foreground: 0 0% 0%;
+    --accent-foreground: 0 0% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 180 100% 50%;
-    --input: 0 0% 20%;
+    --input: 0 0% 90%;
     --ring: 180 100% 50%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 180 100% 70%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 180 100% 30%;
     --sidebar-primary: 180 100% 50%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 180 100% 70%;
-    --sidebar-border: 180 100% 30%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 180 100% 30%;
+    --sidebar-border: 180 100% 40%;
     --sidebar-ring: 180 100% 50%;
   }
 }
@@ -170,7 +170,7 @@
 }
 
 .cyber-box {
-  @apply border-2 border-primary bg-black/40 backdrop-blur-sm relative overflow-hidden;
+  @apply border-2 border-primary bg-white/80 backdrop-blur-sm relative overflow-hidden;
 }
 
 .cyber-box::before {

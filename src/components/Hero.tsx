@@ -12,20 +12,20 @@ const Hero = () => {
       <div className="container grid md:grid-cols-2 gap-8 items-center">
         <div className="space-y-6 md:pr-6 animate-fade-in cyber-box p-6 rounded-lg shadow-lg">
           <p className="text-primary font-medium tech-font">INITIALIZING SYSTEM...</p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight pulse-glow">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight pulse-glow text-gray-800">
             John Doe
           </h1>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-secondary">
             I build amazing web experiences.
           </h2>
-          <p className="text-muted-foreground text-lg max-w-lg">
+          <p className="text-gray-700 text-lg max-w-lg">
             I'm a full-stack developer specializing in creating exceptional digital experiences.
             Currently, I'm focused on building accessible, human-centered products.
           </p>
           <div className="pt-4 flex flex-wrap gap-4">
             <Button 
               size="lg" 
-              className="rounded-md pulse-glow bg-primary text-primary-foreground hover:bg-primary/80"
+              className="rounded-md pulse-glow bg-primary text-gray-800 hover:bg-primary/80"
               asChild
             >
               <a href="#projects">
@@ -45,7 +45,7 @@ const Hero = () => {
         <div className="hidden md:flex justify-center items-center animate-scale-in">
           <div className="relative">
             <div className="absolute inset-0 rounded-full bg-primary/30 blur-3xl"></div>
-            <div className="w-72 h-72 bg-black backdrop-blur-md rounded-full border-4 border-primary/70 flex items-center justify-center overflow-hidden relative z-10 pixel-border">
+            <div className="w-72 h-72 bg-white backdrop-blur-md rounded-full border-4 border-primary/70 flex items-center justify-center overflow-hidden relative z-10 pixel-border">
               <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-secondary/20 mix-blend-overlay"></div>
               <span className="text-6xl font-bold text-primary tech-font pulse-glow">JD</span>
             </div>

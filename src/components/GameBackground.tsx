@@ -24,7 +24,7 @@ const GameBackground = () => {
     const particlesArray: Particle[] = [];
     const numberOfParticles = 50;
 
-    // Colors for particles - more tech/game focused
+    // Colors for particles - brighter tech/game focused
     const colors = [
       "#00FFFF", // Cyan
       "#FF00FF", // Magenta
@@ -128,8 +128,8 @@ const GameBackground = () => {
 
     // Animation loop
     const animate = () => {
-      // Fill with black, slightly transparent to create trails
-      ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+      // Fill with light gray, slightly transparent to create trails
+      ctx.fillStyle = "rgba(240, 240, 245, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       // Draw grid
@@ -181,8 +181,8 @@ const GameBackground = () => {
       }
     };
 
-    // Start with solid black background
-    ctx.fillStyle = "#000000";
+    // Start with solid light background
+    ctx.fillStyle = "#F0F0F5";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     animate();
 
